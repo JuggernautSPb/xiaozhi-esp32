@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       ref:
-        description: 'Ветка, тег или коммит (пусто = main; для 1-в-1 со стоком 23.11: 67ca62d4bb7d или v2.6.0)'
+        description: 'Ветка, тег или коммит (по умолчанию main)'
         required: false
-        default: 'v2.6.0'
+        default: 'main'
 
 jobs:
   build:
@@ -25,6 +25,7 @@ jobs:
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Build stock firmware
+        shell: bash
         run: |
           source /opt/esp/idf/export.sh
           python3 scripts/build.py bread-compact-wifi \
