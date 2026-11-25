@@ -137,6 +137,7 @@ choice BOARD_TYPE
         The OTA board type and firmware variant name are configured separately.
 
     config BOARD_TYPE_SYOMA_PET
+        bool "Syoma Pet (breadboard 128x64 OLED)"
         depends on IDF_TARGET_ESP32S3
     config BOARD_TYPE_ATK_DNESP32S3
         bool "Alientek ATK-DNESP32S3 Development Board (正点原子)"
